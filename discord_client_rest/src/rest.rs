@@ -140,6 +140,14 @@ impl RestClient {
         &self.locale
     }
 
+    pub fn launch_signature(&self) -> String {
+        self.client_session.launch_signature.to_string()
+    }
+
+    pub fn heartbeat_session_id(&self) -> String {
+        self.client_session.client_heartbeat_session_id.to_string()
+    }
+
     pub async fn connect(
         token: String,
         custom_api_version: Option<u8>,

@@ -23,6 +23,7 @@ struct SuperProps {
     client_event_source: Option<String>,
     client_launch_id: String,
     launch_signature: String,
+    client_heartbeat_session_id: String,
     client_app_state: String,
 }
 
@@ -46,6 +47,7 @@ pub fn build_super_props(build_numbers: BuildNumbers, client_session: ClientSess
         client_event_source: None,
         client_launch_id: client_session.client_launch_id.to_string(),
         launch_signature: client_session.launch_signature.to_string(),
+        client_heartbeat_session_id: client_session.client_heartbeat_session_id.to_string(),
         client_app_state: "focused".to_string(),
     };
 
