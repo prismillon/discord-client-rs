@@ -673,8 +673,9 @@ impl GatewayClient {
         self_mute: bool,
         self_deaf: bool,
         self_video: Option<bool>,
+        self_stream: Option<bool>,
     ) -> BoxedResult<()> {
-        let payload = create_op_4(guild_id, channel_id, self_mute, self_deaf, self_video);
+        let payload = create_op_4(guild_id, channel_id, self_mute, self_deaf, self_video, self_stream);
 
         self.tx
             .lock()

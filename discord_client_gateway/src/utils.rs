@@ -198,6 +198,7 @@ pub(crate) fn create_op_4(
     self_mute: bool,
     self_deaf: bool,
     self_video: Option<bool>,
+    self_stream: Option<bool>,
 ) -> String {
     use serde_json::Map;
 
@@ -219,6 +220,10 @@ pub(crate) fn create_op_4(
     if let Some(v) = self_video {
         d.insert("self_video".to_string(), json!(v));
     }
+    d.insert(
+        "self_stream".to_string(),
+        json!(self_stream.unwrap_or(false)),
+    );
 
     json!({ "op": 4, "d": d }).to_string()
 }
